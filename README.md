@@ -164,4 +164,17 @@ curl -X POST "$VITE_API_BASE_URL/contato/" \
 Notas de contrato:
 - Listagens retornam arrays com objetos contendo `id`, `nome`/`name`, `email`/`telefone` (contatos), `descricao` (tipos), e `ativo` (boolean) ou `status` (`ATIVO`/`INATIVO`).
 - Respostas `401` devem ser usadas para expirar sessão; o frontend limpa `auth_token` e redireciona para login.
+## .env.example
+- Arquivo de exemplo incluído na raiz do projeto.
+- Copie e ajuste para desenvolvimento:
+```
+# Windows (PowerShell ou Prompt)
+copy .env.example .env
+
+# macOS/Linux
+cp .env.example .env
+```
+- Edite `VITE_API_BASE_URL` conforme o ambiente.
+- `.env` e `.env.*` são ignorados pelo Git; apenas `.env.example` é versionado.
+- Para produção, use `.env.production` com as mesmas chaves.
 ---
