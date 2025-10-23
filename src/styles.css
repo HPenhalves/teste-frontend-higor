@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #006400; /* dark green */
+  text-decoration: inherit;
+}
+a:hover {
+  color: #90EE90;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.vanilla:hover {
+  filter: drop-shadow(0 0 2em #3178c6aa);
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #006400; /* dark green */
+  color: #fff;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #90EE90;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #000
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+
+/* Dashboard background image */
+body.dashboard-bg {
+  background-image: url('/images/bg-dashboard.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Index background image */
+body.index-bg {
+  background-image: url('/images/bg-index.jpg.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Light overlay to improve form readability */
+body.index-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Elevate card above overlay and soften background */
+body.index-bg .card {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.92);
+}
+
+/* Dark green buttons (Bootstrap .btn-primary override) */
+.btn-primary {
+  background-color: #006400;
+  border-color: #005a00;
+  color: #fff;
+}
+.btn-primary:hover {
+  background-color: #0a7f0a;
+  border-color: #096f09;
+  color: #fff;
+}
+.btn-primary:active, .btn-primary.active, .btn-primary:focus {
+  background-color: #075c00;
+  border-color: #064f00;
+}
+.btn-primary:focus {
+  box-shadow: 0 0 0 0.25rem rgba(0, 100, 0, 0.45);
+}

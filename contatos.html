@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerenciamento de Contatos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    /* Botões em verde claro */
+    .btn-primary {
+      background-color: #006400;
+      border-color: #005a00;
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background-color: #0a7f0a;
+      border-color: #096f09;
+    }
+    .btn-primary:active, .btn-primary.active, .btn-primary:focus {
+      background-color: #075c00;
+      border-color: #064f00;
+    }
+    .btn-primary:focus { box-shadow: 0 0 0 0.25rem rgba(0, 100, 0, 0.45); }
+
+    /* Tabs com fundo branco e texto preto */
+    .nav-tabs .nav-link { background-color: #fff; color: #000; }
+    .nav-tabs .nav-link:hover { color: #000; }
+    .nav-tabs .nav-link.active { background-color: #fff; color: #000; border-color: #dee2e6 #dee2e6 #fff; }
+    /* Plano de fundo com imagem */
+    body.contatos-bg {
+      background-image: url('/images/bg-final.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    /* Links em verde escuro */
+    a { color: #006400; font-size: 1.15rem; }
+    a:hover { color: #000 !important; }
+    strong { font-size: 1.15rem; }
+    strong:hover { color: #000 !important; }
+    /* Navbar em verde escuro */
+     .navbar.bg-primary { background-color: #006400 !important; }
+
+     /* Linhas das tabelas com cores do fundo (verde) */
+      .table {
+        --bs-table-bg: rgba(255, 255, 255, 0.92);
+        --bs-table-border-color: rgba(0, 0, 0, 0.12);
+      }
+      /* Bordas leves nas linhas */
+      .table > :not(caption) > * > * {
+        border-bottom-width: 1px;
+        border-bottom-color: rgba(0, 0, 0, 0.12);
+      }
+      .table-striped {
+        --bs-table-striped-bg: rgba(0, 100, 0, 0.06);
+        --bs-table-striped-color: inherit;
+      }
+      .table-hover {
+        --bs-table-hover-bg: rgba(0, 100, 0, 0.12);
+        --bs-table-hover-color: inherit;
+      }
+      thead.table-light {
+        background-color: rgba(255, 255, 255, 0.96) !important;
+      }
+    </style>
+    </head>
+  <body class="contatos-bg min-vh-100">
+  <nav class="navbar navbar-dark bg-primary">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1">Gerenciamento de Contatos</span>
+      <button id="logoutBtn" class="btn btn-outline-light">Sair</button>
+    </div>
+  </nav>
+
+  <main class="container my-4">
+    <div class="d-flex align-items-center gap-2 mb-3">
+      <a href="./usuarios.html" class="text-decoration-none">Gerenciamento de Usuários</a>
+      <span class="text-muted">|</span>
+      <a href="./tipos.html" class="text-decoration-none">Gerenciamento de Tipos</a>
+      <span class="text-muted">|</span>
+      <strong>Gerenciamento de Contatos</strong>
+      <span class="text-muted">|</span>
+      <a href="./relatorios.html" class="text-decoration-none">Relatórios</a>
+    </div>
+
+    <ul class="nav nav-tabs" id="contatosTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="tab-cadastrar" data-bs-toggle="tab" data-bs-target="#pane-cadastrar" type="button" role="tab" aria-controls="pane-cadastrar" aria-selected="true">Cadastrar</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="tab-ativos" data-bs-toggle="tab" data-bs-target="#pane-ativos" type="button" role="tab" aria-controls="pane-ativos" aria-selected="false">Ativos</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="tab-inativos" data-bs-toggle="tab" data-bs-target="#pane-inativos" type="button" role="tab" aria-controls="pane-inativos" aria-selected="false">Inativos</button>
+      </li>
+    </ul>
+
+    <div class="tab-content pt-3">
+      <!-- Cadastro -->
+      <div class="tab-pane fade show active" id="pane-cadastrar" role="tabpanel" aria-labelledby="tab-cadastrar">
+        <section class="card mx-auto" style="max-width: 520px;">
+          <div class="card-body">
+            <h2 class="card-title h5 mb-3">Cadastrar Novo Contato</h2>
+            <form id="contatoForm">
+              <div class="mb-3">
+                <input id="contatoNome" class="form-control" placeholder="Nome completo" required />
+              </div>
+              <div class="mb-3">
+                <input id="contatoEmail" type="email" class="form-control" placeholder="E-mail" required />
+              </div>
+              <div class="mb-3">
+                <input id="contatoTelefone" class="form-control" placeholder="Telefone (opcional)" />
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
+            </form>
+            <div id="contatoMsg" class="mt-2 d-none"></div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Ativos -->
+      <div class="tab-pane fade" id="pane-ativos" role="tabpanel" aria-labelledby="tab-ativos">
+        <section>
+          <h2 class="h5 mb-3">Contatos Ativos</h2>
+          <div class="card">
+            <div class="card-body p-0">
+              <table class="table table-striped table-hover mb-0" id="ativosContatosTable">
+                <thead class="table-light">
+                  <tr>
+                    <th class="text-start">ID</th>
+                    <th class="text-start">Nome</th>
+                    <th class="text-start">Email</th>
+                    <th class="text-start">Telefone</th>
+                    <th class="text-start">Ações</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Inativos -->
+      <div class="tab-pane fade" id="pane-inativos" role="tabpanel" aria-labelledby="tab-inativos">
+        <section>
+          <h2 class="h5 mb-3">Contatos Inativos</h2>
+          <div class="card">
+            <div class="card-body p-0">
+              <table class="table table-striped table-hover mb-0" id="inativosContatosTable">
+                <thead class="table-light">
+                  <tr>
+                    <th class="text-start">ID</th>
+                    <th class="text-start">Nome</th>
+                    <th class="text-start">Email</th>
+                    <th class="text-start">Telefone</th>
+                    <th class="text-start">Ações</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="./src/js/contatos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+</body>
+</html>

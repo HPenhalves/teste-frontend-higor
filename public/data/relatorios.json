@@ -1,0 +1,49 @@
+{
+  "period": {
+    "title": "Relatório de Contatos e Tipos",
+    "start": "2024-01",
+    "end": "2024-12",
+    "granularity": "mensal"
+  },
+  "contactsTotals": {
+    "current": 1685,
+    "previous": 1520
+  },
+  "typesTotals": {
+    "current": 5,
+    "previous": 4,
+    "activeCurrent": 4,
+    "inactiveCurrent": 1,
+    "activePrevious": 3,
+    "inactivePrevious": 1
+  },
+  "contactsByMonth": [
+    { "month": "2024-01", "total": 100, "active": 80, "inactive": 20, "new": 30 },
+    { "month": "2024-02", "total": 110, "active": 88, "inactive": 22, "new": 25 },
+    { "month": "2024-03", "total": 115, "active": 92, "inactive": 23, "new": 24 },
+    { "month": "2024-04", "total": 120, "active": 96, "inactive": 24, "new": 26 },
+    { "month": "2024-05", "total": 130, "active": 104, "inactive": 26, "new": 28 },
+    { "month": "2024-06", "total": 140, "active": 112, "inactive": 28, "new": 30 },
+    { "month": "2024-07", "total": 145, "active": 116, "inactive": 29, "new": 28 },
+    { "month": "2024-08", "total": 150, "active": 120, "inactive": 30, "new": 32 },
+    { "month": "2024-09", "total": 160, "active": 128, "inactive": 32, "new": 35 },
+    { "month": "2024-10", "total": 165, "active": 132, "inactive": 33, "new": 34 },
+    { "month": "2024-11", "total": 170, "active": 136, "inactive": 34, "new": 36 },
+    { "month": "2024-12", "total": 180, "active": 144, "inactive": 36, "new": 40 }
+  ],
+  "contactsByStatus": { "active": 260, "inactive": 43 },
+  "typesByStatus": [
+    { "type": "Cliente", "active": 120, "inactive": 20 },
+    { "type": "Fornecedor", "active": 60, "inactive": 10 },
+    { "type": "Parceiro", "active": 40, "inactive": 8 },
+    { "type": "Colaborador", "active": 30, "inactive": 3 },
+    { "type": "Outros", "active": 10, "inactive": 2 }
+  ],
+  "typeGrowth": [
+    { "type": "Parceiro", "growthPercent": 25 },
+    { "type": "Cliente", "growthPercent": 18 },
+    { "type": "Fornecedor", "growthPercent": 12 },
+    { "type": "Colaborador", "growthPercent": 9 },
+    { "type": "Outros", "growthPercent": 5 }
+  ]
+}

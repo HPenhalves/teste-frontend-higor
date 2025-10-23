@@ -1,0 +1,154 @@
+{
+  "name": "teste-frontend-higor",
+  "private": true,
+  "version": "1.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.14",
+    "typescript": "~5.9.3",
+    "vite": "npm:rolldown-vite@7.1.14"
+  },
+  "overrides": {
+    "vite": "npm:rolldown-vite@7.1.14"
+  },
+  
+  "relatorio": {
+    "titulo": "Relatório de Contatos e Tipos",
+    "gerado_em": "2025-10-20T10:00:00Z",
+    "periodo": {
+      "de": "2025-01-01",
+      "ate": "2025-12-31",
+      "granularidade": "mes"
+    },
+  
+    "totais": {
+      "contatos": {
+        "total": 192,
+        "ativos": 150,
+        "inativos": 42,
+        "novos_no_periodo": 122,
+        "delta_vs_periodo_anterior": {
+          "absoluto": 36,
+          "percentual": 23.1
+        }
+      },
+      "tipos": {
+        "total": 3,
+        "ativos": 3,
+        "inativos": 0
+      }
+    },
+    "quebras": {
+      "contatos_por_status": [
+        { "status": "ativo", "quantidade": 150 },
+        { "status": "inativo", "quantidade": 42 }
+      ],
+      "contatos_por_tipo": [
+        {
+          "id_tipo": 1,
+          "titulo_tipo": "Cliente",
+          "total": 98,
+          "ativos": 78,
+          "inativos": 20
+        },
+        {
+          "id_tipo": 2,
+          "titulo_tipo": "Fornecedor",
+          "total": 64,
+          "ativos": 50,
+          "inativos": 14
+        },
+        {
+          "id_tipo": 3,
+          "titulo_tipo": "Parceiro",
+          "total": 30,
+          "ativos": 22,
+          "inativos": 8
+        }
+      ],
+      "tipos_por_status": [
+        { "status": "ativo", "quantidade": 3 },
+        { "status": "inativo", "quantidade": 0 }
+      ]
+    },
+    "series_temporais": {
+      "metrica": "contatos",
+      "unidade": "quantidade",
+      "observacoes": "Variação mensal no total de contatos; 'delta' compara com o mês anterior; 'novos' simula cadastros do mês.",
+      "series": [
+        {
+          "chave": "total",
+          "rotulo": "Total de Contatos",
+          "pontos": [
+            { "mes": "2025-01", "valor": 100, "novos": 10, "delta": null },
+            { "mes": "2025-02", "valor": 108, "novos": 12, "delta": 8 },
+            { "mes": "2025-03", "valor": 115, "novos": 9, "delta": 7 },
+            { "mes": "2025-04", "valor": 126, "novos": 14, "delta": 11 },
+            { "mes": "2025-05", "valor": 140, "novos": 18, "delta": 14 },
+            { "mes": "2025-06", "valor": 156, "novos": 16, "delta": 16 },
+            { "mes": "2025-07", "valor": 162, "novos": 10, "delta": 6 },
+            { "mes": "2025-08", "valor": 169, "novos": 9, "delta": 7 },
+            { "mes": "2025-09", "valor": 176, "novos": 9, "delta": 7 },
+            { "mes": "2025-10", "valor": 180, "novos": 8, "delta": 4 },
+            { "mes": "2025-11", "valor": 186, "novos": 10, "delta": 6 },
+            { "mes": "2025-12", "valor": 192, "novos": 9, "delta": 6 }
+          ]
+        },
+        {
+          "chave": "ativos",
+          "rotulo": "Contatos Ativos",
+          "pontos": [
+            { "mes": "2025-01", "valor": 78 },
+            { "mes": "2025-02", "valor": 83 },
+            { "mes": "2025-03", "valor": 88 },
+            { "mes": "2025-04", "valor": 95 },
+            { "mes": "2025-05", "valor": 108 },
+            { "mes": "2025-06", "valor": 122 },
+            { "mes": "2025-07", "valor": 127 },
+            { "mes": "2025-08", "valor": 132 },
+            { "mes": "2025-09", "valor": 138 },
+            { "mes": "2025-10", "valor": 142 },
+            { "mes": "2025-11", "valor": 146 },
+            { "mes": "2025-12", "valor": 150 }
+          ]
+        },
+        {
+          "chave": "inativos",
+          "rotulo": "Contatos Inativos",
+          "pontos": [
+            { "mes": "2025-01", "valor": 22 },
+            { "mes": "2025-02", "valor": 25 },
+            { "mes": "2025-03", "valor": 27 },
+            { "mes": "2025-04", "valor": 31 },
+            { "mes": "2025-05", "valor": 32 },
+            { "mes": "2025-06", "valor": 34 },
+            { "mes": "2025-07", "valor": 35 },
+            { "mes": "2025-08", "valor": 37 },
+            { "mes": "2025-09", "valor": 38 },
+            { "mes": "2025-10", "valor": 38 },
+            { "mes": "2025-11", "valor": 40 },
+            { "mes": "2025-12", "valor": 42 }
+          ]
+        }
+      ]
+    },
+    "top": {
+      "tipos_por_crescimento": [
+        { "id_tipo": 1, "titulo_tipo": "Cliente", "crescimento_no_periodo": 18 },
+        {
+          "id_tipo": 2,
+          "titulo_tipo": "Fornecedor",
+          "crescimento_no_periodo": 12
+        },
+        { "id_tipo": 3, "titulo_tipo": "Parceiro", "crescimento_no_periodo": 6 }
+      ]
+    }
+  }
+}
